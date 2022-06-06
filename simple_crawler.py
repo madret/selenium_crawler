@@ -5,10 +5,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Driver setup
+# Driver setup (Drag the chromedriver executable to specified Path below).
+
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
+
 # Change the URL to a desired URL.
+
 driver.get('https://CHANGE-ME.com')
 print (driver.title)
 
@@ -21,7 +24,7 @@ while True:
         for m in main:
             print(m.text, file=open("output.txt", "a")) #Generates a text file containing the output of the crawled website.
         try:
-                element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '<CSS.ID>'))) #Change the CSS id to a desired selector.
+                element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '<CSS.ID>'))) #Scrolling down until end. Change the CSS id to a desired selector.
                 element.click()
         except TimeoutException:
                 break
